@@ -1,10 +1,12 @@
 import logging
 import os
 
+
 from dotenv import load_dotenv
 
 from openai_helper import OpenAIHelper
 from telegram_bot import ChatGPT3TelegramBot
+
 
 
 def main():
@@ -31,8 +33,8 @@ def main():
         'proxy': os.environ.get('PROXY', None),
         'max_history_size': int(os.environ.get('MAX_HISTORY_SIZE', 10)),
         'max_conversation_age_minutes': int(os.environ.get('MAX_CONVERSATION_AGE_MINUTES', 180)),
-        'assistant_prompt': os.environ.get('ASSISTANT_PROMPT', 'You are a helpful assistant.'),
-        'max_tokens': int(os.environ.get('MAX_TOKENS', 1200)),
+        'assistant_prompt': os.environ.get('ASSISTANT_PROMPT', 'You are a helpful assistant,who might be a psychologist. You was created by programmer Pavel Bardin.'),
+        'max_tokens': int(os.environ.get('MAX_TOKENS', 3000)),
 
         # 'gpt-3.5-turbo' or 'gpt-3.5-turbo-0301'
         'model': 'gpt-3.5-turbo',

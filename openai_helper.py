@@ -3,6 +3,9 @@ import logging
 import openai
 
 
+#файл записывается в ворд, но и отправляется сразу
+#должен отправляться только после команды /word
+
 class OpenAIHelper:
     """
     ChatGPT helper class.
@@ -79,19 +82,19 @@ class OpenAIHelper:
                 return answer
             else:
                 logging.error('No response from GPT-3')
-                return "⚠️ _An error has occurred_ ⚠️\nPlease try again in a while."
+                return "⚠️ Что-то не так с запросом... ⚠️\nНажмите на /reset и введите запрос заново."
 
         except openai.error.RateLimitError as e:
             logging.exception(e)
-            return f"⚠️ _OpenAI Rate Limit exceeded_ ⚠️\n{str(e)}"
+            return f"⚠️ Что-то не так с запросом... ⚠️\nНажмите на /reset и введите запрос заново"
 
         except openai.error.InvalidRequestError as e:
             logging.exception(e)
-            return f"⚠️ _OpenAI Invalid request_ ⚠️\n{str(e)}"
+            return f"⚠️ Что-то не так с запросом... ⚠️\nНажмите на /reset и введите запрос заново"
 
         except Exception as e:
             logging.exception(e)
-            return f"⚠️ _An error has occurred_ ⚠️\n{str(e)}"
+            return f"⚠️ Что-то не так с запросом... ⚠️\nНажмите на /reset и введите запрос заново"
 
     def generate_image(self, prompt: str) -> str:
         """
