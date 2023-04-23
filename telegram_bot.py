@@ -174,7 +174,7 @@ class ChatGPT3TelegramBot:
             await context.bot.send_message(
                 chat_id=chat_id,
                 reply_to_message_id=update.message.message_id,
-                text=f'У тебя очень крутой голос, но я не люблю слушать людей... Напиши мне текстом то, что тебя интересует!'
+                text=f'Что то не так с голосовым сообщением! Попробуй записать еще раз'
             )
         finally:
             # Cleanup files
